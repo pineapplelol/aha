@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Input } from "antd";
 import Synonyms from "./Synonyms";
+import Translations from "./Translations";
 const { Search } = Input;
 
 function Home() {
@@ -13,6 +14,7 @@ function Home() {
         onSearch={(value) => setWord(value)}
         style={{ width: 400 }}
       />
+      <Translations word={word} />
       <Synonyms word={word} />
     </>
   );
