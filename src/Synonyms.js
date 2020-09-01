@@ -22,7 +22,7 @@ function Synonyms(props) {
   }, []);
 
   useEffect(() => {
-    getSynonyms(word);
+    if (word) getSynonyms(word);
   }, [word, getSynonyms]);
 
   return synonyms.map((s) => <WordCard word={s} />);

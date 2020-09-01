@@ -22,13 +22,12 @@ function Translations(props) {
         { headers, params }
       )
       .then((response) => {
-        if (word)
-          setTranslations(response.data[0].translations.map((j) => j.text));
+        setTranslations(response.data[0].translations.map((j) => j.text));
       });
   }, []);
 
   useEffect(() => {
-    getTranslations(word);
+    if (word) getTranslations(word);
   }, [word, getTranslations]);
 
   return translations.map((s) => <WordCard word={s} />);
