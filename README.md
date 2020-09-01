@@ -7,3 +7,8 @@ A tool to find inspiration for project names. Search a relevant word, and aha wi
 `yarn start`
 
 [http://localhost:3000](http://localhost:3000)
+
+## APIs
+
+- [DataMuse](http://www.datamuse.com/api/)
+- [Microsoft Translator](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/)
