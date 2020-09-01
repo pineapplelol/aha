@@ -30,7 +30,14 @@ function Translations(props) {
     if (word) getTranslations(word);
   }, [word, getTranslations]);
 
-  return translations.map((s) => <WordCard word={s} />);
+  return (
+    <>
+      <h1>Translations</h1>
+      {translations.map((s) => (
+        <WordCard word={s} />
+      ))}
+    </>
+  );
 }
 
 export default Translations;

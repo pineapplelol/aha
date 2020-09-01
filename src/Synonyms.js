@@ -25,7 +25,14 @@ function Synonyms(props) {
     if (word) getSynonyms(word);
   }, [word, getSynonyms]);
 
-  return synonyms.map((s) => <WordCard word={s} />);
+  return (
+    <>
+      <h1>Synonyms</h1>
+      {synonyms.map((s) => (
+        <WordCard word={s} />
+      ))}
+    </>
+  );
 }
 
 export default Synonyms;
