@@ -22,16 +22,18 @@ function Home() {
 
   return (
     <>
-      <Search
-        placeholder="A word that describes your idea"
-        onSearch={(value) => setWord(value)}
-        style={{ width: 400 }}
-      />
-      <Dropdown overlay={menu}>
-        <Button>
-          {find} <DownOutlined />
-        </Button>
-      </Dropdown>
+      <Input.Group>
+        <Dropdown overlay={menu}>
+          <Button>
+            {find} <DownOutlined />
+          </Button>
+        </Dropdown>
+        <Search
+          placeholder="A word that describes your idea"
+          onSearch={(value) => setWord(value)}
+          style={{ width: 400 }}
+        />
+      </Input.Group>
       {word && find === "Translations" && <Translations word={word} />}
       {word && find === "Synonyms" && <Synonyms word={word} />}
     </>
