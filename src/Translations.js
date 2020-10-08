@@ -6,7 +6,11 @@ function Translations(props) {
   const { word } = props;
   const [translations, setTranslations] = useState([]);
 
+  
   const getTranslations = useCallback((word) => {
+    console.log("hello");
+    console.log(process.env.REACT_APP_MS_TRANSLATE);
+
     const headers = {
       "Ocp-Apim-Subscription-Key": process.env.REACT_APP_MS_TRANSLATE,
       "Content-Type": "application/json",
@@ -27,7 +31,7 @@ function Translations(props) {
   }, []);
 
   useEffect(() => {
-    if (word) getTranslations(word);
+    // if (word) getTranslations(word);
   }, [word, getTranslations]);
 
   return (
