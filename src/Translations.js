@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
-import WordCard from "./WordCard";
+import WordCardGrid from "./WordCardGrid";
 import axios from "axios";
 
 function Translations(props) {
@@ -33,9 +33,7 @@ function Translations(props) {
   return (
     <>
       <h1>Translations</h1>
-      {translations.map((s) => (
-        <WordCard word={s} />
-      ))}
+      <WordCardGrid words={translations} />
     </>
   );
 }
