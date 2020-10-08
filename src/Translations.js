@@ -1,16 +1,12 @@
 import React, { useState, useEffect, useCallback } from "react";
-import WordCard from "./WordCard";
+import WordCardGrid from "./WordCardGrid";
 import axios from "axios";
 
 function Translations(props) {
   const { word } = props;
   const [translations, setTranslations] = useState([]);
 
-  
   const getTranslations = useCallback((word) => {
-    console.log("hello");
-    console.log(process.env.REACT_APP_MS_TRANSLATE);
-
     const headers = {
       "Ocp-Apim-Subscription-Key": process.env.REACT_APP_MS_TRANSLATE,
       "Content-Type": "application/json",
@@ -31,15 +27,13 @@ function Translations(props) {
   }, []);
 
   useEffect(() => {
-    // if (word) getTranslations(word);
+    if (word) getTranslations(word);
   }, [word, getTranslations]);
 
   return (
     <>
       <h1>Translations</h1>
-      {translations.map((s) => (
-        <WordCard word={s} />
-      ))}
+      <WordCardGrid words={translations} />
     </>
   );
 }
