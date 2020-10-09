@@ -31,7 +31,7 @@ function WordCardGrid(props) {
       );
     });
 
-  return <div className="resources-grid">{cards}</div>;
+  return <>{cards}</>;
 }
 
 export default WordCardGrid;
