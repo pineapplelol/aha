@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Dropdown, Input, Menu } from "antd";
+import { Button, Dropdown, Input, Menu, Row } from "antd";
 import { DownOutlined } from "@ant-design/icons";
 import Synonyms from "./Synonyms";
 import Translations from "./Translations";
@@ -22,7 +22,7 @@ function Home() {
 
   return (
     <>
-      <Input.Group>
+      <Row type="flex" align="center" className="search">
         <Dropdown overlay={menu}>
           <Button>
             {find} <DownOutlined />
@@ -33,7 +33,7 @@ function Home() {
           onSearch={(value) => setWord(value)}
           style={{ width: 400 }}
         />
-      </Input.Group>
+      </Row>
       {word && find === "Translations" && <Translations word={word} />}
       {word && find === "Synonyms" && <Synonyms word={word} />}
     </>
