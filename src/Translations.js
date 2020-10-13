@@ -1,6 +1,9 @@
 import React, { useState, useEffect, useCallback } from "react";
 import WordCardGrid from "./WordCardGrid";
 import axios from "axios";
+import { languages } from "./languages";
+
+const qs = require("qs");
 
 function Translations(props) {
   const { word } = props;
@@ -13,13 +16,19 @@ function Translations(props) {
     };
     const params = {
       "api-version": "3.0",
-      to: ["es", "de"],
+      to: Object.keys(languages),
     };
     axios
       .post(
         "https://api.cognitive.microsofttranslator.com/translate",
         `[{'Text':'${word}'}]`,
-        { headers, params }
+        {
+          headers,
+          params,
+          paramsSerializer: (params) => {
+            return qs.stringify(params, { arrayFormat: "repeat" });
+          },
+        }
       )
       .then((response) => {
         setTranslations(response.data[0].translations.map((j) => j.text));
