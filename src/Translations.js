@@ -31,7 +31,11 @@ function Translations(props) {
         }
       )
       .then((response) => {
-        setTranslations(response.data[0].translations.map((j) => j.text));
+        setTranslations(
+          response.data[0].translations.map((j) => {
+            return { heading: j.text, identifier: languages[j.to].name };
+          })
+        );
       });
   }, []);
 

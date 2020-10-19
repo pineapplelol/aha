@@ -15,16 +15,19 @@ function WordCardGrid(props) {
       return (
         <Row gutter={[16, 16]}>
           <Col span={8} align="middle">
-            <WordCard word={first} />
+            <WordCard heading={first.heading} identifier={first.identifier} />
           </Col>
           {second && (
             <Col span={8} align="middle">
-              <WordCard word={second} />
+              <WordCard
+                heading={second.heading}
+                identifier={second.identifier}
+              />
             </Col>
           )}
           {third && (
             <Col span={8} align="middle">
-              <WordCard word={third} />
+              <WordCard heading={third.heading} identifier={third.identifier} />
             </Col>
           )}
         </Row>
