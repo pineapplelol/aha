@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import WordCardGrid from "./WordCardGrid";
+import SynonymCard from "./SynonymCard";
 
 function Synonyms(props) {
   const { word } = props;
@@ -16,7 +17,11 @@ function Synonyms(props) {
           if (response.ok) return response.json();
         })
         .then((json) => {
-          setSynonyms(json.map((j) => j.word));
+          setSynonyms(
+            json.splice(0, 5).map((j) => {
+              return <SynonymCard word={j.word} />;
+            })
+          );
         });
     }
   }, []);
@@ -28,7 +33,7 @@ function Synonyms(props) {
   return (
     <>
       <h1>Synonyms</h1>
-      <WordCardGrid words={synonyms} />
+      <WordCardGrid cards={synonyms} />
     </>
   );
 }

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import WordCardGrid from "./WordCardGrid";
+import WordCard from "./WordCard";
 import axios from "axios";
 import { languages } from "./languages";
 
@@ -33,7 +34,9 @@ function Translations(props) {
       .then((response) => {
         setTranslations(
           response.data[0].translations.map((j) => {
-            return { heading: j.text, identifier: languages[j.to].name };
+            return (
+              <WordCard heading={j.text} identifier={languages[j.to].name} />
+            );
           })
         );
       });
@@ -46,7 +49,7 @@ function Translations(props) {
   return (
     <>
       <h1>Translations</h1>
-      <WordCardGrid words={translations} />
+      <WordCardGrid cards={translations} />
     </>
   );
 }
