@@ -6,16 +6,16 @@ function Synonyms(props) {
   const [synonyms, setSynonyms] = useState([]);
 
   const getSynonyms = useCallback((word) => {
-    var completeURL = "https://api.datamuse.com/words?ml=" + word;
-    var http = new XMLHttpRequest();
-    http.open("HEAD", completeURL, false);
+    const url = "https://api.datamuse.com/words?ml=" + word;
+    const http = new XMLHttpRequest();
+    http.open("HEAD", url, false);
     http.send();
     if (http.status !== 404) {
-      fetch(completeURL)
-        .then(function (response) {
+      fetch(url)
+        .then((response) => {
           if (response.ok) return response.json();
         })
-        .then(function (json) {
+        .then((json) => {
           setSynonyms(json.map((j) => j.word));
         });
     }
