@@ -1,9 +1,7 @@
 import React from "react";
 import { Col, Row } from "antd";
 
-function WordCardGrid(props) {
-  const { cards } = props;
-
+function WordCardGrid({ cards }) {
   const cardLayout = Array(Math.ceil(cards.length / 3))
     .fill()
     .map((_, index) => {

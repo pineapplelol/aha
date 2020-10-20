@@ -2,8 +2,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import WordCardGrid from "./WordCardGrid";
 import SynonymCard from "./SynonymCard";
 
-function Synonyms(props) {
-  const { word } = props;
+function Synonyms({ word }) {
   const [synonyms, setSynonyms] = useState([]);
 
   const getSynonyms = useCallback((word) => {

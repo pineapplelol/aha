@@ -1,12 +1,11 @@
 import React, { useState, useEffect, useCallback } from "react";
 import WordCard from "./WordCard";
 
-function SynonymCard(props) {
-  const { word } = props;
+function SynonymCard({ word }) {
   const [pos, setPOS] = useState("");
   const [definition, setDefinition] = useState("");
 
-  const getDefinition = useCallback(async (word) => {
+  const getDefinition = useCallback(async () => {
     const url = "https://dictionary.pineapple.lol/" + word;
     const http = new XMLHttpRequest();
     http.open("HEAD", url, false);
@@ -23,11 +22,11 @@ function SynonymCard(props) {
     } else {
       setDefinition("No definition found.");
     }
-  }, []);
+  }, [word]);
 
   useEffect(() => {
-    if (word) getDefinition(word);
-  }, [word, getDefinition]);
+    getDefinition();
+  }, [getDefinition]);
 
   return <WordCard heading={word} identifier={pos} description={definition} />;
 }

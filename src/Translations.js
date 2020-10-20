@@ -6,8 +6,7 @@ import { languages } from "./languages";
 
 const qs = require("qs");
 
-function Translations(props) {
-  const { word } = props;
+function Translations({ word }) {
   const [translations, setTranslations] = useState([]);
 
   const getTranslations = useCallback((word) => {
