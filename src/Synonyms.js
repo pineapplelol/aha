@@ -1,24 +1,24 @@
 import React, { useState, useEffect, useCallback } from "react";
 import WordCardGrid from "./WordCardGrid";
+import SynonymCard from "./SynonymCard";
 
-function Synonyms(props) {
-  const { word } = props;
+function Synonyms({ word }) {
   const [synonyms, setSynonyms] = useState([]);
 
   const getSynonyms = useCallback((word) => {
-    var completeURL = "https://api.datamuse.com/words?ml=" + word;
-    var http = new XMLHttpRequest();
-    http.open("HEAD", completeURL, false);
-    http.send();
-    if (http.status !== 404) {
-      fetch(completeURL)
-        .then(function (response) {
-          if (response.ok) return response.json();
-        })
-        .then(function (json) {
-          setSynonyms(json.map((j) => j.word));
-        });
-    }
+    const url = "https://api.datamuse.com/words?ml=" + word;
+    
+    fetch(url)
+      .then((response) => {
+        if (response.ok) return response.json();
+      })
+      .then((json) => {
+        setSynonyms(
+          json.splice(0, 27).map((j) => {
+            return <SynonymCard word={j.word} />;
+          })
+        );
+      });
   }, []);
 
   useEffect(() => {
@@ -28,7 +28,7 @@ function Synonyms(props) {
   return (
     <>
       <h1>Synonyms</h1>
-      <WordCardGrid words={synonyms} />
+      <WordCardGrid cards={synonyms} />
     </>
   );
 }
