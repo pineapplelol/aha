@@ -7,22 +7,18 @@ function Synonyms({ word }) {
 
   const getSynonyms = useCallback((word) => {
     const url = "https://api.datamuse.com/words?ml=" + word;
-    const http = new XMLHttpRequest();
-    http.open("HEAD", url, false);
-    http.send();
-    if (http.status !== 404) {
-      fetch(url)
-        .then((response) => {
-          if (response.ok) return response.json();
-        })
-        .then((json) => {
-          setSynonyms(
-            json.splice(0, 5).map((j) => {
-              return <SynonymCard word={j.word} />;
-            })
-          );
-        });
-    }
+    
+    fetch(url)
+      .then((response) => {
+        if (response.ok) return response.json();
+      })
+      .then((json) => {
+        setSynonyms(
+          json.splice(0, 27).map((j) => {
+            return <SynonymCard word={j.word} />;
+          })
+        );
+      });
   }, []);
 
   useEffect(() => {
