@@ -36,6 +36,13 @@ function Home() {
       </Row>
       {word && find === "Translations" && <Translations word={word} />}
       {word && find === "Synonyms" && <Synonyms word={word} />}
+      <a href="https://vercel.com?utm_source=pineapplelol&utm_campaign=oss">
+        <img
+          style={{ paddingTop: "3em", width: "10%", float: "bottom" }}
+          src="/powered-by-vercel.svg"
+          alt="vercel sponsorship"
+        />
+      </a>
     </>
   );
 }

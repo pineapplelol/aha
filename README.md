@@ -12,3 +12,5 @@ A tool to find inspiration for project names. Search a relevant word, and aha wi
 
 - [DataMuse](http://www.datamuse.com/api/)
 - [Microsoft Translator](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/)
+
+<a href="https://vercel.com?utm_source=pineapplelol&utm_campaign=oss"><img style="padding-top: 3em; width: 30%;" src="public/powered-by-vercel.svg" /></a>
