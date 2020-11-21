@@ -1,9 +1,9 @@
 .search {
-  padding: 4em 0;
+  padding: 2em 0;
 }
 
 .content {
   margin: 0px auto;
-  min-height: calc(100vh - 220px);
+  min-height: calc(100vh - 320px);
   width: 90%;
 }

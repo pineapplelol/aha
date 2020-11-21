@@ -4,6 +4,7 @@ import { DownOutlined } from "@ant-design/icons";
 
 import Synonyms from "../components/Synonyms";
 import Translations from "../components/Translations";
+import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 import "../css/Home.css";
@@ -27,6 +28,7 @@ function Home() {
 
   return (
     <>
+      {!word && <Header />}
       <Row type="flex" align="center" className="search">
         <Dropdown overlay={menu}>
           <Button>
@@ -40,16 +42,14 @@ function Home() {
         />
       </Row>
       <div className="content">
-        {word && find === "Translations" && (
+        {word && (
           <>
-            <h1>Translations</h1>
-            <Translations word={word} />
-          </>
-        )}
-        {word && find === "Synonyms" && (
-          <>
-            <h1>Synonyms</h1>
-            <Synonyms word={word} />
+            <h1>{find}</h1>
+            {find === "Synonyms" ? (
+              <Synonyms word={word} />
+            ) : (
+              <Translations word={word} />
+            )}
           </>
         )}
       </div>
