@@ -4,6 +4,9 @@ import { DownOutlined } from "@ant-design/icons";
 
 import Synonyms from "../components/Synonyms";
 import Translations from "../components/Translations";
+import Footer from "../components/Footer";
+
+import "../css/Home.css";
 
 const { Search } = Input;
 
@@ -36,15 +39,21 @@ function Home() {
           style={{ width: 400 }}
         />
       </Row>
-      {word && find === "Translations" && <Translations word={word} />}
-      {word && find === "Synonyms" && <Synonyms word={word} />}
-      <a href="https://vercel.com?utm_source=pineapplelol&utm_campaign=oss">
-        <img
-          style={{ paddingTop: "3em", width: "10%", float: "bottom" }}
-          src="/powered-by-vercel.svg"
-          alt="vercel sponsorship"
-        />
-      </a>
+      <div className="content">
+        {word && find === "Translations" && (
+          <>
+            <h1>Translations</h1>
+            <Translations word={word} />
+          </>
+        )}
+        {word && find === "Synonyms" && (
+          <>
+            <h1>Synonyms</h1>
+            <Synonyms word={word} />
+          </>
+        )}
+      </div>
+      <Footer />
     </>
   );
 }

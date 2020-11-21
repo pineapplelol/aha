@@ -1,0 +1,26 @@
+.footer {
+  display: flex;
+  width: 100%;
+}
+
+.vercel {
+  margin-left: 10px;
+  width: 200px;
+}
+
+.footer-links {
+  padding-left: 3em;
+  width: 50%;
+}
+
+.footer-links li {
+  list-style: none;
+}
+
+.footer-links li a {
+  color: #767777;
+}
+
+.footer-links li a:hover {
+  color: #3c3c3c;
+}
