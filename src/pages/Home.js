@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { Button, Dropdown, Input, Menu, Row } from "antd";
 import { DownOutlined } from "@ant-design/icons";
-import Synonyms from "./Synonyms";
-import Translations from "./Translations";
+
+import Synonyms from "../components/Synonyms";
+import Translations from "../components/Translations";
+
 const { Search } = Input;
 
 function Home() {

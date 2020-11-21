@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useCallback } from "react";
+import axios from "axios";
+
 import WordCardGrid from "./WordCardGrid";
 import WordCard from "./WordCard";
-import axios from "axios";
-import { languages } from "./languages";
+
+import { languages } from "../data/languages";
 
 const qs = require("qs");
 

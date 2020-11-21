@@ -7,7 +7,7 @@ function Synonyms({ word }) {
 
   const getSynonyms = useCallback((word) => {
     const url = "https://api.datamuse.com/words?ml=" + word;
-    
+
     fetch(url)
       .then((response) => {
         if (response.ok) return response.json();
