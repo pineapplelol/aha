@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import { Button, Dropdown, Input, Menu, Row } from "antd";
 import { DownOutlined } from "@ant-design/icons";
 
+import Footer from "../components/Footer";
+import Header from "../components/Header";
+import Nav from "../components/Nav";
 import Synonyms from "../components/Synonyms";
 import Translations from "../components/Translations";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 
 import "../css/Home.css";
 
@@ -28,6 +29,7 @@ function Home() {
 
   return (
     <>
+      <Nav />
       {!word && <Header />}
       <Row type="flex" align="center" className="search">
         <Dropdown overlay={menu}>
