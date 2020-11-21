@@ -5,7 +5,9 @@ import "../css/Nav.css";
 function Nav() {
   return (
     <div className="nav">
-      <img src="/pineapplelol.png" alt="pineapplelol logo" />
+      <a href="https://pineapple.lol">
+        <img src="/pineapplelol.png" alt="pineapplelol logo" />
+      </a>
     </div>
   );
 }
