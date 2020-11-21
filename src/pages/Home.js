@@ -1,8 +1,15 @@
 import React, { useState } from "react";
 import { Button, Dropdown, Input, Menu, Row } from "antd";
 import { DownOutlined } from "@ant-design/icons";
-import Synonyms from "./Synonyms";
-import Translations from "./Translations";
+
+import Footer from "../components/Footer";
+import Header from "../components/Header";
+import Nav from "../components/Nav";
+import Synonyms from "../components/Synonyms";
+import Translations from "../components/Translations";
+
+import "../css/Home.css";
+
 const { Search } = Input;
 
 function Home() {
@@ -22,6 +29,8 @@ function Home() {
 
   return (
     <>
+      <Nav />
+      {!word && <Header />}
       <Row type="flex" align="center" className="search">
         <Dropdown overlay={menu}>
           <Button>
@@ -34,15 +43,19 @@ function Home() {
           style={{ width: 400 }}
         />
       </Row>
-      {word && find === "Translations" && <Translations word={word} />}
-      {word && find === "Synonyms" && <Synonyms word={word} />}
-      <a href="https://vercel.com?utm_source=pineapplelol&utm_campaign=oss">
-        <img
-          style={{ paddingTop: "3em", width: "10%", float: "bottom" }}
-          src="/powered-by-vercel.svg"
-          alt="vercel sponsorship"
-        />
-      </a>
+      <div className="content">
+        {word && (
+          <>
+            <h1>{find}</h1>
+            {find === "Synonyms" ? (
+              <Synonyms word={word} />
+            ) : (
+              <Translations word={word} />
+            )}
+          </>
+        )}
+      </div>
+      <Footer />
     </>
   );
 }

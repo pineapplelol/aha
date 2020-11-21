@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useCallback } from "react";
+import axios from "axios";
+
 import WordCardGrid from "./WordCardGrid";
 import WordCard from "./WordCard";
-import axios from "axios";
-import { languages } from "./languages";
+
+import { languages } from "../data/languages";
 
 const qs = require("qs");
 
@@ -45,12 +47,7 @@ function Translations({ word }) {
     if (word) getTranslations(word);
   }, [word, getTranslations]);
 
-  return (
-    <>
-      <h1>Translations</h1>
-      <WordCardGrid cards={translations} />
-    </>
-  );
+  return <WordCardGrid cards={translations} />;
 }
 
 export default Translations;

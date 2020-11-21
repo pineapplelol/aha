@@ -7,7 +7,7 @@ function Synonyms({ word }) {
 
   const getSynonyms = useCallback((word) => {
     const url = "https://api.datamuse.com/words?ml=" + word;
-    
+
     fetch(url)
       .then((response) => {
         if (response.ok) return response.json();
@@ -25,12 +25,7 @@ function Synonyms({ word }) {
     if (word) getSynonyms(word);
   }, [word, getSynonyms]);
 
-  return (
-    <>
-      <h1>Synonyms</h1>
-      <WordCardGrid cards={synonyms} />
-    </>
-  );
+  return <WordCardGrid cards={synonyms} />;
 }
 
 export default Synonyms;

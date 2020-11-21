@@ -1,0 +1,10 @@
+.nav {
+  margin: 0 auto;
+  width: 90%;
+  height: 100px;
+}
+
+.nav img {
+  width: 240px;
+  padding-top: 20px;
+}
