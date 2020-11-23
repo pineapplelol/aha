@@ -22,9 +22,9 @@ function SynonymCard({ word }) {
       });
   }, [word]);
 
-  // useEffect(getDefinition, [getDefinition]);
+  useEffect(getDefinition, [getDefinition]);
 
-  return <WordCard heading={word} identifier={pos} description={"hello"} />;
+  return <WordCard heading={word} identifier={pos} description={definition} />;
 }
 
 export default SynonymCard;
