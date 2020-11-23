@@ -1,11 +1,14 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState } from "react";
+import { Modal } from "antd";
+
 import WordCard from "./WordCard";
 
 function SynonymCard({ word }) {
   const [pos, setPOS] = useState("");
   const [definition, setDefinition] = useState("");
+  const [show, setShow] = useState(false);
 
-  const getDefinition = useCallback(() => {
+  const getDefinition = () => {
     const url = "https://dictionary.pineapple.lol/" + word;
 
     fetch(url)
@@ -20,11 +23,34 @@ function SynonymCard({ word }) {
           setDefinition("No definition found.");
         }
       });
-  }, [word]);
+  };
 
-  useEffect(getDefinition, [getDefinition]);
+  const showModal = () => {
+    getDefinition();
+    setShow(true);
+  };
 
-  return <WordCard heading={word} identifier={pos} description={definition} />;
+  return (
+    <>
+      <div onClick={showModal}>
+        <WordCard heading={word} />
+      </div>
+      <Modal
+        title={word}
+        visible={show}
+        onOk={() => {
+          setShow(false);
+        }}
+        onCancel={() => {
+          setShow(false);
+        }}
+      >
+        <p>
+          <em>{pos}</em> {definition}
+        </p>
+      </Modal>
+    </>
+  );
 }
 
 export default SynonymCard;
