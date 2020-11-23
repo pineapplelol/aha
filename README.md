@@ -12,6 +12,7 @@ A tool to find inspiration for project names. Search a relevant word, and aha wi
 
 - [DataMuse](http://www.datamuse.com/api/)
 - [Microsoft Translator](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/)
+- [Merriam-Webster Dictionary](https://dictionaryapi.com/)
 
 ## Partners
 
