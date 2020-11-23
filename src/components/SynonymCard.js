@@ -5,11 +5,11 @@ import WordCard from "./WordCard";
 
 function SynonymCard({ word }) {
   const [pos, setPOS] = useState("");
-  const [definition, setDefinition] = useState("");
+  const [definitions, setDefinitions] = useState([]);
   const [show, setShow] = useState(false);
 
   const getDefinition = () => {
-    const url = "https://dictionary.pineapple.lol/" + word;
+    const url = `https://www.dictionaryapi.com/api/v3/references/collegiate/json/${word}?key=${process.env.REACT_APP_MW_API_KEY}`;
 
     fetch(url)
       .then((response) => {
@@ -17,10 +17,10 @@ function SynonymCard({ word }) {
       })
       .then((json) => {
         if (json) {
-          setDefinition(json[0].def);
-          setPOS(json[0].pos);
+          setDefinitions(json[0].shortdef);
+          setPOS(json[0].fl);
         } else {
-          setDefinition("No definition found.");
+          setDefinitions(["No definition found."]);
         }
       });
   };
@@ -46,8 +46,11 @@ function SynonymCard({ word }) {
         }}
       >
         <p>
-          <em>{pos}</em> {definition}
+          <em>{pos}</em>
         </p>
+        {definitions.map((d) => (
+          <p>{d}</p>
+        ))}
       </Modal>
     </>
   );
