@@ -15,3 +15,17 @@
   margin-left: auto;
   width: 180px;
 }
+
+@media only screen and (max-width: 800px) {
+  .footer {
+    width: 95%;
+  }
+  .copyright {
+    width: 40%;
+  }
+  .footer img {
+    padding-top: 1em;
+    width: 160px;
+    float: right;
+  }
+}
