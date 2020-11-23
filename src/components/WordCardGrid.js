@@ -10,17 +10,17 @@ function WordCardGrid({ cards }) {
       const third = index * 3 + 2 < cards.length ? cards[index * 3 + 2] : null;
 
       return (
-        <Row gutter={[16, 16]}>
-          <Col span={8} align="middle">
+        <Row>
+          <Col xs={24} xl={8}>
             {first}
           </Col>
           {second && (
-            <Col span={8} align="middle">
+            <Col xs={24} xl={8}>
               {second}
             </Col>
           )}
           {third && (
-            <Col span={8} align="middle">
+            <Col xs={24} xl={8}>
               {third}
             </Col>
           )}
