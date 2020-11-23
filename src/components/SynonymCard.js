@@ -1,12 +1,15 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState } from "react";
+import { Modal } from "antd";
+
 import WordCard from "./WordCard";
 
 function SynonymCard({ word }) {
   const [pos, setPOS] = useState("");
-  const [definition, setDefinition] = useState("");
+  const [definitions, setDefinitions] = useState([]);
+  const [show, setShow] = useState(false);
 
-  const getDefinition = useCallback(() => {
-    const url = "https://dictionary.pineapple.lol/" + word;
+  const getDefinition = () => {
+    const url = `https://www.dictionaryapi.com/api/v3/references/collegiate/json/${word}?key=${process.env.REACT_APP_MW_API_KEY}`;
 
     fetch(url)
       .then((response) => {
@@ -14,17 +17,43 @@ function SynonymCard({ word }) {
       })
       .then((json) => {
         if (json) {
-          setDefinition(json[0].def);
-          setPOS(json[0].pos);
+          setDefinitions(json[0].shortdef);
+          setPOS(json[0].fl);
         } else {
-          setDefinition("No definition found.");
+          setDefinitions(["No definition found."]);
         }
       });
-  }, [word]);
+  };
 
-  useEffect(getDefinition, [getDefinition]);
+  const showModal = () => {
+    getDefinition();
+    setShow(true);
+  };
 
-  return <WordCard heading={word} identifier={pos} description={definition} />;
+  return (
+    <>
+      <div onClick={showModal}>
+        <WordCard heading={word} />
+      </div>
+      <Modal
+        title={word}
+        visible={show}
+        onOk={() => {
+          setShow(false);
+        }}
+        onCancel={() => {
+          setShow(false);
+        }}
+      >
+        <p>
+          <em>{pos}</em>
+        </p>
+        {definitions.map((d) => (
+          <p>{d}</p>
+        ))}
+      </Modal>
+    </>
+  );
 }
 
 export default SynonymCard;

@@ -13,6 +13,10 @@
 .footer a {
   float: right;
   margin-left: auto;
+  width: 160px;
+}
+
+.footer img {
   width: 180px;
 }
 
