@@ -1,11 +1,10 @@
-<div>
-<img align="left" width="150" height="150" src="https://pineapple.lol/asset/fronz.png">
+<img align="left" width="125" height="125" src="https://pineapple.lol/asset/fronz.png">
 
 # aha
 
 A tool to find inspiration for project names. Search a relevant word, and aha will show you similar words, and the same word in other languages. Visit at [aha.pineapple.lol](http://aha.pineapple.lol).
 
-</div>
+---
 
 ## Technology
 
