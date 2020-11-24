@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  frontend_lint:
+  code_quality:
     docker:
       - image: circleci/node:10.16.3
     working_directory: ~/aha
@@ -15,10 +15,9 @@ jobs:
     steps:
       - checkout
       - run:
-          command: yarn && yarn flow
+          command: yarn && yarn lint && yarn flow
 workflows:
   version: 2
   build_test:
     jobs:
-      - frontend_lint
-      - frontend_flow
+      - code_quality
