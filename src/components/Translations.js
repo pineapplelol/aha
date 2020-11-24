@@ -1,17 +1,24 @@
+// @flow
+
 import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 
 import { languages } from '../data/languages';
 
-import WordCardGrid from './WordCardGrid';
 import WordCard from './WordCard';
+import WordCardGrid from './WordCardGrid';
 
 const qs = require('qs');
 
-function Translations({ word }) {
+type Props = {
+  word: string,
+};
+
+function Translations(props: Props) {
+  const { word } = props;
   const [translations, setTranslations] = useState([]);
 
-  const getTranslations = useCallback(word => {
+  const getTranslations = useCallback(w => {
     const headers = {
       'Ocp-Apim-Subscription-Key': process.env.REACT_APP_MS_TRANSLATE,
       'Content-Type': 'application/json',
@@ -23,12 +30,12 @@ function Translations({ word }) {
     axios
       .post(
         'https://api.cognitive.microsofttranslator.com/translate',
-        `[{'Text':'${word}'}]`,
+        `[{'Text':'${w}'}]`,
         {
           headers,
           params,
-          paramsSerializer: params => {
-            return qs.stringify(params, { arrayFormat: 'repeat' });
+          paramsSerializer: p => {
+            return qs.stringify(p, { arrayFormat: 'repeat' });
           },
         },
       )
