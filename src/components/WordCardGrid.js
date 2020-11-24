@@ -1,5 +1,5 @@
-import React from "react";
-import { Col, Row } from "antd";
+import React from 'react';
+import { Col, Row } from 'antd';
 
 function WordCardGrid({ cards }) {
   const cardLayout = Array(Math.ceil(cards.length / 3))

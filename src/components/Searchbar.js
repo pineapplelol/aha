@@ -1,8 +1,8 @@
-import React from "react";
-import { Button, Dropdown, Input, Menu, Row } from "antd";
-import { DownOutlined } from "@ant-design/icons";
+import React from 'react';
+import { Button, Dropdown, Input, Menu, Row } from 'antd';
+import { DownOutlined } from '@ant-design/icons';
 
-import "../css/Searchbar.css";
+import '../css/Searchbar.css';
 
 const { Search } = Input;
 
@@ -29,7 +29,7 @@ function Searchbar({ setWord, find, setFind }) {
           </Dropdown>
         }
         placeholder="A word that describes your idea"
-        onSearch={(value) => setWord(value)}
+        onSearch={value => setWord(value)}
         style={{ width: 400 }}
       />
     </Row>
