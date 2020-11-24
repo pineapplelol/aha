@@ -1,7 +1,6 @@
 // @flow
-
 import React, { useState, useEffect, useCallback } from 'react';
-
+import type { Node } from 'react';
 import WordCardGrid from './WordCardGrid';
 import SynonymCard from './SynonymCard';
 
@@ -9,7 +8,7 @@ type Props = {
   word: string,
 };
 
-function Synonyms(props: Props) {
+function Synonyms(props: Props): Node {
   const { word } = props;
   const [synonyms, setSynonyms] = useState([]);
 

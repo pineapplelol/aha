@@ -1,15 +1,15 @@
 // @flow
-
 import React from 'react';
+import type { Node } from 'react';
 import { Card } from 'antd';
 
 type Props = {
   heading: string,
-  identifier: string,
-  description: string,
+  identifier?: string,
+  description?: string,
 };
 
-function WordCard(props: Props) {
+function WordCard(props: Props): Node {
   const { heading, identifier, description } = props;
 
   return (

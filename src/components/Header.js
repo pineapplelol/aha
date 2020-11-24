@@ -1,8 +1,9 @@
+// @flow
 import React from 'react';
-
+import type { Node } from 'react';
 import '../css/Header.css';
 
-function Header() {
+function Header(): Node {
   return (
     <div className="header">
       <h1>aha</h1>

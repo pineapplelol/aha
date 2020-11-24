@@ -1,13 +1,13 @@
 // @flow
-
 import React from 'react';
+import type { Node } from 'react';
 import { Col, Row } from 'antd';
 
 type Props = {
-  cards: Array,
+  cards: Array<Node>,
 };
 
-function WordCardGrid(props: Props) {
+function WordCardGrid(props: Props): Node {
   const { cards } = props;
 
   const cardLayout = Array(Math.ceil(cards.length / 3))

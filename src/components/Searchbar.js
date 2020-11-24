@@ -1,9 +1,8 @@
 // @flow
-
 import React from 'react';
+import type { Node } from 'react';
 import { Button, Dropdown, Input, Menu, Row } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
-
 import '../css/Searchbar.css';
 
 const { Search } = Input;
@@ -14,7 +13,7 @@ type Props = {
   setWord: string => void,
 };
 
-function Searchbar(props: Props) {
+function Searchbar(props: Props): Node {
   const { setWord, find, setFind } = props;
 
   const onClick = ({ key }) => {
