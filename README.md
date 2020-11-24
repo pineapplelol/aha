@@ -1,12 +1,17 @@
+<div>
+<img align="left" width="150" height="150" src="https://pineapple.lol/asset/fronz.png">
+
 # aha
 
 A tool to find inspiration for project names. Search a relevant word, and aha will show you similar words, and the same word in other languages. Visit at [aha.pineapple.lol](http://aha.pineapple.lol).
+
+</div>
 
 ## Technology
 
 Built with [React](https://reactjs.org/) using [Ant Design](https://ant.design/) components.
 
-Uses [ESLint](https://eslint.org) with [Prettier](https://prettier.io/) and the [Airbnb Javascript Style Guide](https://github.com/airbnb/javascript). 
+Uses [ESLint](https://eslint.org) with [Prettier](https://prettier.io/) and the [Airbnb Javascript Style Guide](https://github.com/airbnb/javascript).
 
 Uses [Flow](https://flow.org/) type checking.
 
