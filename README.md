@@ -2,6 +2,8 @@
 
 A tool to find inspiration for project names. Search a relevant word, and aha will show you similar words, and the same word in other languages.
 
+View it at [aha.pineapple.lol](http://aha.pineapple.lol)
+
 ## Run
 
 `yarn start`
