@@ -1,8 +1,9 @@
-import React from "react";
+// @flow
+import React from 'react';
+import type { Node } from 'react';
+import '../css/Nav.css';
 
-import "../css/Nav.css";
-
-function Nav() {
+function Nav(): Node {
   return (
     <div className="nav">
       <a href="https://pineapple.lol">

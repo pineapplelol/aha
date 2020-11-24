@@ -1,8 +1,9 @@
-import React from "react";
+// @flow
+import React from 'react';
+import type { Node } from 'react';
+import '../css/Footer.css';
 
-import "../css/Footer.css";
-
-function Footer() {
+function Footer(): Node {
   return (
     <div className="footer">
       <div className="copyright">Copyright &#169; 2020 pineapplelol</div>

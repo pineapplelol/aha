@@ -1,22 +1,31 @@
-import React, { useState, useEffect, useCallback } from "react";
-import WordCardGrid from "./WordCardGrid";
-import SynonymCard from "./SynonymCard";
+// @flow
+import React, { useState, useEffect, useCallback } from 'react';
+import type { Node } from 'react';
 
-function Synonyms({ word }) {
+import WordCardGrid from './WordCardGrid';
+import SynonymCard from './SynonymCard';
+
+type Props = {
+  word: string,
+};
+
+function Synonyms(props: Props): Node {
+  const { word } = props;
   const [synonyms, setSynonyms] = useState([]);
 
-  const getSynonyms = useCallback((word) => {
-    const url = "https://api.datamuse.com/words?ml=" + word;
+  const getSynonyms = useCallback(w => {
+    const url = `https://api.datamuse.com/words?ml=${w}`;
 
     fetch(url)
-      .then((response) => {
-        if (response.ok) return response.json();
+      .then(response => {
+        if (!response.ok) throw response;
+        return response.json();
       })
-      .then((json) => {
+      .then(json => {
         setSynonyms(
-          json.splice(0, 27).map((j) => {
+          json.splice(0, 27).map(j => {
             return <SynonymCard word={j.word} />;
-          })
+          }),
         );
       });
   }, []);

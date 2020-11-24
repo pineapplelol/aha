@@ -1,12 +1,21 @@
-import React from "react";
-import { Button, Dropdown, Input, Menu, Row } from "antd";
-import { DownOutlined } from "@ant-design/icons";
-
-import "../css/Searchbar.css";
+// @flow
+import React from 'react';
+import type { Node } from 'react';
+import { Button, Dropdown, Input, Menu, Row } from 'antd';
+import { DownOutlined } from '@ant-design/icons';
+import '../css/Searchbar.css';
 
 const { Search } = Input;
 
-function Searchbar({ setWord, find, setFind }) {
+type Props = {
+  find: string,
+  setFind: string => void,
+  setWord: string => void,
+};
+
+function Searchbar(props: Props): Node {
+  const { setWord, find, setFind } = props;
+
   const onClick = ({ key }) => {
     setFind(key);
   };
@@ -29,7 +38,7 @@ function Searchbar({ setWord, find, setFind }) {
           </Dropdown>
         }
         placeholder="A word that describes your idea"
-        onSearch={(value) => setWord(value)}
+        onSearch={value => setWord(value)}
         style={{ width: 400 }}
       />
     </Row>

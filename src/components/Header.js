@@ -1,12 +1,16 @@
-import React from "react";
+// @flow
+import React from 'react';
+import type { Node } from 'react';
+import '../css/Header.css';
 
-import "../css/Header.css";
-
-function Header() {
+function Header(): Node {
   return (
     <div className="header">
       <h1>aha</h1>
-      <p>Find the perfect name for your next project. Take inspiration from synonyms and translations.</p>
+      <p>
+        Find the perfect name for your next project. Take inspiration from
+        synonyms and translations.
+      </p>
     </div>
   );
 }
