@@ -22,4 +22,9 @@ function WordCard(props: Props): Node {
   );
 }
 
+WordCard.defaultProps = {
+  identifier: '',
+  description: '',
+};
+
 export default WordCard;

@@ -1,10 +1,12 @@
 // @flow
 import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
+import type { Node } from 'react';
+
+import { languages } from '../data/languages';
+
 import WordCard from './WordCard';
 import WordCardGrid from './WordCardGrid';
-import type { Node } from 'react';
-import { languages } from '../data/languages';
 
 const qs = require('qs');
 

@@ -1,6 +1,7 @@
 // @flow
 import React, { useState, useEffect, useCallback } from 'react';
 import type { Node } from 'react';
+
 import WordCardGrid from './WordCardGrid';
 import SynonymCard from './SynonymCard';
 

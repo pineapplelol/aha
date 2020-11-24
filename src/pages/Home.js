@@ -1,6 +1,7 @@
 // @flow
 import React, { useState } from 'react';
 import type { Node } from 'react';
+
 import Footer from '../components/Footer';
 import Searchbar from '../components/Searchbar';
 import Header from '../components/Header';

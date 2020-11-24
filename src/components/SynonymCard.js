@@ -1,8 +1,9 @@
 // @flow
 import React, { useState } from 'react';
-import WordCard from './WordCard';
 import type { Node } from 'react';
 import { Modal } from 'antd';
+
+import WordCard from './WordCard';
 
 type Props = {
   word: string,
