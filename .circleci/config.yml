@@ -7,14 +7,6 @@ jobs:
     steps:
       - checkout
       - run:
-          command: yarn && yarn lint
-  frontend_flow:
-    docker:
-      - image: circleci/node:10.16.3
-    working_directory: ~/aha
-    steps:
-      - checkout
-      - run:
           command: yarn && yarn lint && yarn flow
 workflows:
   version: 2
