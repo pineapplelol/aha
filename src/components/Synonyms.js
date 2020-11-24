@@ -1,17 +1,25 @@
+// @flow
+
 import React, { useState, useEffect, useCallback } from 'react';
 
 import WordCardGrid from './WordCardGrid';
 import SynonymCard from './SynonymCard';
 
-function Synonyms({ word }) {
+type Props = {
+  word: string,
+};
+
+function Synonyms(props: Props) {
+  const { word } = props;
   const [synonyms, setSynonyms] = useState([]);
 
-  const getSynonyms = useCallback(word => {
-    const url = `https://api.datamuse.com/words?ml=${word}`;
+  const getSynonyms = useCallback(w => {
+    const url = `https://api.datamuse.com/words?ml=${w}`;
 
     fetch(url)
       .then(response => {
-        if (response.ok) return response.json();
+        if (!response.ok) throw response;
+        return response.json();
       })
       .then(json => {
         setSynonyms(
