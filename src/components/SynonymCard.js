@@ -1,19 +1,31 @@
+// @flow
+
 import React, { useState } from 'react';
 import { Modal } from 'antd';
+import type { Node } from 'react';
 
 import WordCard from './WordCard';
 
-function SynonymCard({ word }) {
-  const [pos, setPOS] = useState('');
+type Props = {
+  word: string,
+};
+
+function SynonymCard(props: Props): Node {
+  const { word } = props;
+
   const [definitions, setDefinitions] = useState([]);
+  const [pos, setPOS] = useState('');
   const [show, setShow] = useState(false);
 
   const getDefinition = () => {
-    const url = `https://www.dictionaryapi.com/api/v3/references/collegiate/json/${word}?key=${process.env.REACT_APP_MW_API_KEY}`;
+    if (!process.env.REACT_APP_MW_API_KEY) throw new Error('API key missing');
+    const key = process.env.REACT_APP_MW_API_KEY;
+    const url = `https://www.dictionaryapi.com/api/v3/references/collegiate/json/${word}?key=${key}`;
 
     fetch(url)
       .then(response => {
-        if (response.ok) return response.json();
+        if (!response.ok) throw response;
+        return response.json();
       })
       .then(json => {
         if (json) {
@@ -32,7 +44,7 @@ function SynonymCard({ word }) {
 
   return (
     <>
-      <div onClick={showModal}>
+      <div role="button" tabIndex={0} onClick={showModal} onKeyDown={showModal}>
         <WordCard heading={word} />
       </div>
       <Modal
