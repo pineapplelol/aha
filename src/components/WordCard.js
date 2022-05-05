@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import type { Node } from 'react';
-import { Card } from 'antd';
+import { Box, Center, Heading } from '@chakra-ui/react';
 
 type Props = {
   heading: string,
@@ -13,12 +13,21 @@ function WordCard(props: Props): Node {
   const { heading, identifier, description } = props;
 
   return (
-    <Card hoverable style={{ width: '90%', textAlign: 'left' }}>
-      <h2>{heading}</h2>
-      <p>
+    <Box
+      border="1px solid"
+      borderColor="gray.100"
+      borderRadius="sm"
+      overflow="hidden"
+      padding={8}
+      _hover={{ boxShadow: 'lg', transition: 'box-shadow 150ms ease-in-out' }}
+    >
+      <Heading as="h5" size="md">
+        {heading}
+      </Heading>
+      {/* <Text>
         <em>{identifier}</em> {description}
-      </p>
-    </Card>
+      </Text> */}
+    </Box>
   );
 }
 
