@@ -1,7 +1,6 @@
 // @flow
 import React from 'react';
 import type { Node } from 'react';
-import '../css/Nav.css';
 import { chakra, Image, Link } from '@chakra-ui/react';
 
 function Nav(): Node {
